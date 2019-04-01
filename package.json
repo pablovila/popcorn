@@ -11,7 +11,8 @@
   "scripts": {
     "test": "jest",
     "build": "next build",
-    "dev": "next"
+    "dev": "next",
+    "now-build": "next build"
   },
   "dependencies": {
     "axios": "^0.18.0",
