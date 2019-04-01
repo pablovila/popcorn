@@ -1,12 +1,25 @@
 {
+  "name": "popcorn",
+  "version": "1.0.0",
+  "description": "Simple web to fetch movies and display info",
+  "author": "Pablo Vila <pablo.vilafer@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pablovila/popcorn"
+  },
+  "license": "MIT",
   "scripts": {
     "build": "next build",
     "dev": "next",
     "now-build": "next build"
   },
   "dependencies": {
-    "next": "^8.0.0",
-    "react": "^16.7.0",
-    "react-dom": "^16.7.0"
+    "axios": "^0.18.0",
+    "next": "^8.0.3",
+    "proptypes": "^1.1.0",
+    "react": "^16.8.4",
+    "react-dom": "^16.8.4",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   }
 }
