@@ -9,13 +9,9 @@ jobs:
           keys:
             - v1-dependencies-{{ checksum "package.json" }}
             - v1-dependencies-
-      - run:
-        name: Setup dependencies
-        command: npm install
+      - run: npm install
       - save_cache:
           paths:
-            - ./node_modules
+            - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-      - run:
-        name: Run tests and coverage
-        command: mpm run test
+      - run: mpm run test
