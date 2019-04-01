@@ -1,22 +1,13 @@
+import { shallow } from "enzyme";
 import React from "react";
-import ReactDOM from "react-dom";
+import renderer from "react-test-renderer";
+
 import Index from "../pages/index";
 
-let container;
+describe("can render initial setup", () => {
+  it("App shows 'Initial setup'", () => {
+    const app = shallow(<Index />);
 
-beforeEach(() => {
-  container = document.createElement("div");
-  document.body.appendChild(container);
-});
-
-afterEach(() => {
-  document.body.removeChild(container);
-  container = null;
-});
-
-it("can render", () => {
-  ReactDOM.render(<Index />, container);
-
-  const section = container.querySelector("section");
-  expect(section.textContent).toBe("Initial setup");
+    expect(app.find("section").text()).toEqual("Initial setup");
+  });
 });
