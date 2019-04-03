@@ -1,18 +1,10 @@
 import { normalize } from "normalizr";
-import { API } from "@/apis/tmdb";
-import * as selectors from "@/store/selectors";
-import * as schema from "@/store/entities/schema";
+import { API } from "apis/tmdb";
+import * as schema from "store/entities/schema";
 import * as actions from "./actions";
 
 export const fetchPopularMovies = () => {
-  return async (dispatch, getState) => {
-    const state = getState();
-    const isLoading = selectors.isFeedLoading(state);
-
-    if (isLoading) {
-      return;
-    }
-
+  return async dispatch => {
     dispatch(actions.fetchPopularMoviesStart());
 
     try {

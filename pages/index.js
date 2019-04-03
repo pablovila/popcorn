@@ -1,6 +1,6 @@
 import React from "react";
-import * as operations from "@/store/operations";
-import * as selectors from "@/store/selectors";
+import * as operations from "store/operations";
+import * as selectors from "store/selectors";
 
 const index = props => {
   return (
@@ -12,13 +12,13 @@ const index = props => {
 };
 
 index.getInitialProps = async ({ store }) => {
-  await store.dispatch(operations.fetchPopularMovies());
+  await store.dispatch(operations.fetchGenres());
 
   const state = store.getState();
-  const items = selectors.getFeedItems(state);
-  const movies = items.map(item => selectors.getMovieById(state, item));
+  const items = selectors.getGenreListItems(state);
+  const genres = items.map(item => selectors.getGenreById(state, item));
 
-  return { movies };
+  return { genres };
 };
 
 export default index;

@@ -4,7 +4,12 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "apis/*": ["src/apis/*"],
+      "components/*": ["src/components/*"],
+      "containers/*": ["src/containers/*"],
+      "scss/*": ["src/scss/*"],
+      "store/*": ["src/store/*"],
+      "src/*": ["src/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

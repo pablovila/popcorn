@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import * as moviesTypes from "@/store/entities/movies/types";
+import * as genresTypes from "store/entities/genres/types";
 
 const items = (state = [], action) => {
   switch (action.type) {
-    case moviesTypes.FETCH_POPULAR_MOVIES_SUCCESS:
+    case genresTypes.FETCH_GENRES_SUCCESS:
       return [...state, ...action.response.result];
     default:
       return state;
@@ -12,19 +12,19 @@ const items = (state = [], action) => {
 
 const isLoading = (state = false, action) => {
   switch (action.type) {
-    case moviesTypes.FETCH_POPULAR_MOVIES_START:
+    case genresTypes.FETCH_GENRES_START:
       return true;
-    case moviesTypes.FETCH_POPULAR_MOVIES_SUCCESS:
-    case moviesTypes.FETCH_POPULAR_MOVIES_FAIL:
+    case genresTypes.FETCH_GENRES_SUCCESS:
+    case genresTypes.FETCH_GENRES_FAIL:
       return false;
     default:
       return state;
   }
 };
 
-const feed = combineReducers({
+const genreList = combineReducers({
   items,
   isLoading
 });
 
-export default feed;
+export default genreList;
