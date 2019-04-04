@@ -26,10 +26,7 @@ class MyApp extends App {
         <Head>
           <title>Popcorn</title>
           <meta charSet="utf-8" />
-          <meta
-            name="viewport"
-            content="width=device-width, user-scalable=no"
-          />
+          <meta name="viewport" content="width=device-width, initial-scale=1"/>
         </Head>
         <Provider store={store}>
           <Layout>

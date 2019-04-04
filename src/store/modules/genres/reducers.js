@@ -22,9 +22,9 @@ const isLoading = (state = false, action) => {
   }
 };
 
-const genreList = combineReducers({
+const genres = combineReducers({
   items,
   isLoading
 });
 
-export default genreList;
+export default genres;

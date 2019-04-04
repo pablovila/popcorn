@@ -7,7 +7,7 @@ import * as actions from "./actions";
 export const fetchGenres = () => {
   return async (dispatch, getState) => {
     const state = getState();
-    const isLoading = selectors.isGenreListLoading(state);
+    const isLoading = selectors.isGenresLoading(state);
 
     if (isLoading) {
       return;
