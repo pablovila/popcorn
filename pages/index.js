@@ -1,11 +1,25 @@
 import React from "react";
+import * as operations from "store/operations";
+import * as selectors from "store/selectors";
+import GenreList from "containers/Lists/GenreList";
 
-function Index() {
+const index = ({ genres }) => {
   return (
-    <main>
-      <section>Initial setup</section>
-    </main>
+    <>
+      <h1>Popcorn Movies</h1>
+      <GenreList genres={genres} />
+    </>
   );
-}
+};
 
-export default Index;
+index.getInitialProps = async ({ store }) => {
+  await store.dispatch(operations.fetchGenres());
+
+  const state = store.getState();
+  const items = selectors.getGenresItems(state);
+  const genres = items.map(item => selectors.getGenreById(state, item));
+
+  return { genres };
+};
+
+export default index;
