@@ -7,7 +7,5 @@ export const getGenreById = (state, genreId) =>
 export const getMovieById = (state, movieId) =>
   entitiesSelector.getMovieById(state.entities, movieId);
 
-export const getGenresItems = state =>
-  genresSelector.getItems(state.genres);
-export const isGenresLoading = state =>
-  genresSelector.isLoading(state.genres);
+export const getGenresItems = state => genresSelector.getItems(state.genres);
+export const isGenresLoading = state => genresSelector.isLoading(state.genres);

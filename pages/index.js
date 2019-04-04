@@ -1,13 +1,13 @@
 import React from "react";
 import * as operations from "store/operations";
 import * as selectors from "store/selectors";
-import List from 'containers/List/List'
+import GenreList from "containers/Lists/GenreList";
 
-const index = ({genres}) => {
+const index = ({ genres }) => {
   return (
     <>
       <h1>Popcorn Movies</h1>
-      <List items={genres} type="genres" />
+      <GenreList genres={genres} />
     </>
   );
 };
