@@ -10,6 +10,7 @@
   "license": "MIT",
   "scripts": {
     "test": "jest",
+    "test:coverage": "jest --coverage",
     "build": "next build",
     "dev": "next",
     "now-build": "next build"
