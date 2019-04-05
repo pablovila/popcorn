@@ -56,7 +56,7 @@ describe("test async functions fetching genres", () => {
     moxios.uninstall(axiosInstance);
   });
 
-  it("create FETCH_GENRES_START and FETCH_GENRES_SUCCESS when fetching genres", () => {
+  it("creates FETCH_GENRES_START and FETCH_GENRES_SUCCESS when fetching genres", () => {
     moxios.wait(() => {
       const request = moxios.requests.mostRecent();
       request.respondWith({
@@ -70,6 +70,36 @@ describe("test async functions fetching genres", () => {
       {
         type: types.FETCH_GENRES_SUCCESS,
         response: mockNormalizedState
+      }
+    ];
+    const store = mockStore({ genres: { isLoading: false } });
+
+    return store.dispatch(operations.fetchGenres()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("doesn't fecth if it is loading already", () => {
+    const expectedActions = [];
+    const store = mockStore({ genres: { isLoading: true } });
+    return store.dispatch(operations.fetchGenres()).then(() => {
+      expect(store.getActions()).toEqual(expectedActions);
+    });
+  });
+
+  it("returns an error if API call fails", () => {
+    moxios.wait(() => {
+      const request = moxios.requests.mostRecent();
+      request.respondWith({
+        status: 404
+      });
+    });
+
+    const expectedActions = [
+      { type: types.FETCH_GENRES_START },
+      {
+        type: types.FETCH_GENRES_FAIL,
+        error: new Error("Request failed with status code 404")
       }
     ];
     const store = mockStore({ genres: { isLoading: false } });
