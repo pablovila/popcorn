@@ -8,6 +8,7 @@
       "components/*": ["src/components/*"],
       "containers/*": ["src/containers/*"],
       "scss/*": ["src/scss/*"],
+      "server/*": ["src/server/*"],
       "store/*": ["src/store/*"],
       "src/*": ["src/*"]
     }

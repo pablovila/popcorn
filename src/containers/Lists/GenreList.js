@@ -4,11 +4,11 @@ import GenreCard from "components/Cards/GenreCard";
 
 const genreList = ({ genres }) => {
   return (
-    <>
+    <div className="columns is-multiline">
       {genres.map(genre => (
         <GenreCard key={genre.id} genre={genre} />
       ))}
-    </>
+    </div>
   );
 };
 

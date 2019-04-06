@@ -18,7 +18,7 @@ const layout = ({ children }) => {
         <NavbarBrand>
           <NavbarItem>
             <Link href="/">
-              <a>Popcorn Movies</a>
+              <a>Popcorn Movies 🍿</a>
             </Link>
           </NavbarItem>
         </NavbarBrand>
@@ -31,7 +31,9 @@ const layout = ({ children }) => {
           </NavbarItem>
         </NavbarMenu>
       </Navbar>
-      <main>{children}</main>
+      <section className="section">
+        <div className="container">{children}</div>
+      </section>
     </Fragment>
   );
 };

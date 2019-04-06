@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 const navbar = ({ children }) => {
   return (
     <nav className="navbar" role="navigation" aria-label="main navigation">
-      {children}
+      <div className="container">{children}</div>
     </nav>
   );
 };
