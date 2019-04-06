@@ -1,10 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import Box from "../UI/Box";
+
 const genreCard = ({ genre }) => {
   return (
     <>
-      <h2>{genre.name}</h2>
+      <Box>{genre.name}</Box>
     </>
   );
 };
