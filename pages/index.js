@@ -6,7 +6,6 @@ import GenreList from "containers/Lists/GenreList";
 const index = ({ genres }) => {
   return (
     <>
-      <h1>Popcorn Movies</h1>
       <GenreList genres={genres} />
     </>
   );

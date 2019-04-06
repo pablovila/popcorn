@@ -1,24 +1,31 @@
 import React from "react";
-import { shallow } from "enzyme";
+import { mount } from "enzyme";
 
 import configureMockStore from "redux-mock-store";
 import freeze from "redux-freeze";
 import thunk from "redux-thunk";
 
 import Index from "../../pages/index";
+import GenreCard from "components/Cards/GenreCard";
 
 const middlewares = [freeze, thunk];
 const mockStore = configureMockStore(middlewares);
 
 describe("test Index page", () => {
-  it("renders Popcorn title", () => {
-    const mockData = { genres: [] };
-    const app = shallow(<Index {...mockData} />);
-    expect(app.find("h1").text()).toEqual("Popcorn Movies");
+  const mockData = {
+    entities: { genres: { byId: { 1: { id: 1, name: "Action" } } } },
+    genres: { isLoading: false, items: [1] }
+  };
+
+  it("renders list of genres", async () => {
+    const store = mockStore(mockData);
+    const props = await Index.getInitialProps({ store });
+    const app = mount(<Index {...props} />);
+    expect(app.find(GenreCard)).toHaveLength(1);
   });
 
   it("gets initial props for the page", async () => {
-    const store = mockStore({ entities: { genres: { byId: { 1: { id: 1, name: "Action" } } } }, genres: { isLoading: false, items: [1] } });
+    const store = mockStore(mockData);
     const props = await Index.getInitialProps({ store });
     expect(props).toEqual({ genres: [{ id: 1, name: "Action" }] });
   });

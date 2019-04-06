@@ -17,6 +17,7 @@ module.exports = withCss(
         "src/containers"
       );
       config.resolve.alias["scss"] = path.join(__dirname, "src/scss");
+      config.resolve.alias["server"] = path.join(__dirname, "src/server");
       config.resolve.alias["store"] = path.join(__dirname, "src/store");
 
       return config;

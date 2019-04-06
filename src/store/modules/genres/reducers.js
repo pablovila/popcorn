@@ -3,6 +3,8 @@ import * as genresTypes from "store/entities/genres/types";
 
 const items = (state = [], action) => {
   switch (action.type) {
+    case genresTypes.FETCH_GENRES_START:
+      return [];
     case genresTypes.FETCH_GENRES_SUCCESS:
       return [...state, ...action.response.result];
     default:

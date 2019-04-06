@@ -7,6 +7,7 @@ module.exports = {
     "^components(.*)$": "<rootDir>/src/components$1",
     "^containers(.*)$": "<rootDir>/src/containers$1",
     "^scss(.*)$": "<rootDir>/src/scss$1",
+    "^server(.*)$": "<rootDir>/src/server$1",
     "^store(.*)$": "<rootDir>/src/store$1"
   }
 };
