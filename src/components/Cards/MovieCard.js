@@ -8,7 +8,6 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 import { IMAGE_BASE_URL } from "apis/tmdb/apiConfig";
 
 const movieCard = ({ movie }) => {
-  console.log(movie);
   return (
     <div className="column is-half">
       <Link route="movie" params={{ slug: movie.id }}>
