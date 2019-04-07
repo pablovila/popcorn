@@ -4,10 +4,12 @@ import freeze from "redux-freeze";
 import thunk from "redux-thunk";
 import entities from "store/entities";
 import genres from "store/modules/genres/reducers";
+import movies from "store/modules/movies/reducers";
 
 const rootReducer = combineReducers({
   entities,
-  genres
+  genres,
+  movies
 });
 
 const makeStore = initialState => {
