@@ -1,9 +1,14 @@
 import React from "react";
 import * as operations from "store/operations";
 import * as selectors from "store/selectors";
+import MoviesList from "containers/Lists/MoviesList";
 
-const movies = props => {
-  return <>{JSON.stringify(props)}</>;
+const movies = ({ movies }) => {
+  return (
+    <>
+      <MoviesList movies={movies} />
+    </>
+  );
 };
 
 movies.getInitialProps = async ({ store, query }) => {
