@@ -16,11 +16,9 @@ const layout = ({ children }) => {
     <Fragment>
       <Navbar>
         <NavbarBrand>
-          <NavbarItem>
-            <Link href="/">
-              <a>Popcorn Movies 🍿</a>
-            </Link>
-          </NavbarItem>
+          <Link href="/">
+            <NavbarItem isLink>Popcorn Movies 🍿</NavbarItem>
+          </Link>
         </NavbarBrand>
         <NavbarMenu>
           <NavbarItem>
