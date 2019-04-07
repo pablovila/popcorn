@@ -12,7 +12,7 @@ const search = () => {
         </span>
       </div>
       <div className="control">
-        <button className="button is-info">Search</button>
+        <button className="button is-link">Search</button>
       </div>
     </div>
   );

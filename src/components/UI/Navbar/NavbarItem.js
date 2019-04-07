@@ -2,11 +2,20 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const navbarItem = props => {
-  const { children, ...aProps } = props;
+  const { children, isLink, ...itemProps } = props;
   return (
-    <div className="navbar-item" {...aProps}>
-      {children}
-    </div>
+    <>
+      {isLink && (
+        <a className="navbar-item" {...itemProps}>
+          {children}
+        </a>
+      )}
+      {!isLink && (
+        <div className="navbar-item" {...itemProps}>
+          {children}
+        </div>
+      )}
+    </>
   );
 };
 
