@@ -5,11 +5,13 @@ import thunk from "redux-thunk";
 import entities from "store/entities";
 import genres from "store/modules/genres/reducers";
 import movies from "store/modules/movies/reducers";
+import movie from "store/modules/movie/reducers";
 
 const rootReducer = combineReducers({
   entities,
   genres,
-  movies
+  movies,
+  movie
 });
 
 const makeStore = initialState => {
