@@ -2,8 +2,14 @@ import React from "react";
 import * as operations from "store/operations";
 import * as selectors from "store/selectors";
 
-const movie = props => {
-  return <>{JSON.stringify(props)}</>;
+import MovieInfo from "containers/MovieInfo";
+
+const movie = ({ movie }) => {
+  return (
+    <>
+      <MovieInfo movie={movie} />
+    </>
+  );
 };
 
 movie.getInitialProps = async ({ store, query }) => {

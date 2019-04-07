@@ -6,6 +6,7 @@ import freeze from "redux-freeze";
 import thunk from "redux-thunk";
 
 import Movie from "../../pages/movie";
+import MovieInfo from "containers/MovieInfo";
 
 const middlewares = [freeze, thunk];
 const mockStore = configureMockStore(middlewares);
@@ -19,18 +20,15 @@ describe("test Movie page", () => {
   };
 
   it("renders movie info", async () => {
-    /*const store = mockStore(mockData);
-    const props = await Movies.getInitialProps({ store, query: { slug: 1 } });
-    const movies = mount(<Movies {...props} />);
-    expect(movies.find(MovieCard)).toHaveLength(1);*/
-    expect(true).toBe(true);
+    const store = mockStore(mockData);
+    const props = await Movie.getInitialProps({ store, query: { slug: 1 } });
+    const movies = mount(<Movie {...props} />);
+    expect(movies.find(MovieInfo)).toHaveLength(1);
   });
 
   it("gets initial props for the page", async () => {
     const store = mockStore(mockData);
     const props = await Movie.getInitialProps({ store, query: { slug: 1 } });
-    expect(props).toEqual({
-      movie: { id: 1, title: "Captain Marvel" }
-    });
+    expect(props).toEqual({ movie: { id: 1, title: "Captain Marvel" } });
   });
 });
