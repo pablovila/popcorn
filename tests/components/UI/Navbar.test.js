@@ -26,7 +26,7 @@ describe("test Navbar component", () => {
     const navbar = mount(
       <Navbar>
         <NavbarBrand>
-          <NavbarItem>Popcorn Movies</NavbarItem>
+          <NavbarItem isLink>Popcorn Movies</NavbarItem>
         </NavbarBrand>
         <NavbarMenu>
           <NavbarItem>
