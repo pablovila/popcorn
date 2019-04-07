@@ -8,8 +8,13 @@ const movie = props => {
 
 movie.getInitialProps = async ({ store, query }) => {
   const movieId = query.slug;
+  await store.dispatch(operations.fetchMovie(movieId));
 
-  return { movieId };
+  const state = store.getState();
+  const item = selectors.getMovie(state);
+  const movie = selectors.getMovieDetailsById(state, item);
+
+  return { movie };
 };
 
 export default movie;
