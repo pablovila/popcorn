@@ -3,9 +3,9 @@
   "name": "popcorn",
   "builds": [{ "src": "package.json", "use": "@now/next" }],
   "routes": [
-    { "src": "/movies/(?<slug>.*)", "dest": "/movies?slug=$slug" },
+    { "src": "/movies/(?<slug>[^/])", "dest": "/movies?slug=$slug" },
     {
-      "src": "/movies/(?<genreId>.*/(?<slug>.*)",
+      "src": "/movies/(?<genreId>[^/]/(?<slug>[^/])",
       "dest": "/movies?genreId=$genreId&slug=$slug"
     }
   ]
