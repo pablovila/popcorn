@@ -28,7 +28,7 @@ describe("test Movies page", () => {
     expect(movies.find(MovieCard)).toHaveLength(1);
   });
 
-  it("renders list of movies even without store", async () => {
+  it("renders list of movies even without previous store", async () => {
     const badMockData = {
       entities: {
         genres: { byId: {} },
