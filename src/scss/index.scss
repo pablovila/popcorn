@@ -1,1 +1,43 @@
 @import "../../node_modules/bulma/bulma";
+
+div.genre-card {
+  cursor: pointer;
+  display: inline-flex;
+  color: #363636;
+  border-radius: 0;
+  transition: all 0.25s ease 0s;
+  position: relative;
+  top: 0;
+  &:hover {
+    top: -10px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 16px;
+  }
+  span.icon {
+    margin-left: calc(-0.375em - 1px);
+    margin-right: 0.1875em;
+    height: 1.5em;
+    width: 1.5em;
+  }
+}
+
+div.movie-card {
+  figure {
+    cursor: pointer;
+  }
+  .title {
+    cursor: pointer;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+  p.content {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
+  }
+  div.media-right .icon {
+    cursor: pointer;
+  }
+}
