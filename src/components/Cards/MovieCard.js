@@ -7,10 +7,10 @@ import { faCartPlus } from "@fortawesome/free-solid-svg-icons";
 
 import { IMAGE_BASE_URL } from "apis/tmdb/apiConfig";
 
-const movieCard = ({ movie }) => {
+const movieCard = ({ movie, genre }) => {
   return (
     <div className="column is-half">
-      <Link route="movie" params={{ slug: movie.id }}>
+      <Link route="movie" params={{ slug: movie.id, genreId: genre.id }}>
         <div className="box">
           <article className="media">
             <figure className="media-left">
@@ -37,7 +37,8 @@ const movieCard = ({ movie }) => {
 };
 
 movieCard.propTypes = {
-  movie: PropTypes.object.isRequired
+  movie: PropTypes.object.isRequired,
+  genre: PropTypes.object
 };
 
 export default movieCard;
