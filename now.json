@@ -1,5 +1,22 @@
 {
   "version": 2,
   "name": "popcorn",
-  "builds": [{ "src": "package.json", "use": "@now/next" }]
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "routes": [
+    {
+      "src": "/_next/static/(.*)",
+      "dest": "/_next/static/$1",
+      "headers": {
+        "cache-control": "s-maxage=86400"
+      }
+    },
+    {
+      "src": "^\\/movies\\/([^\\/]+?)(?:\\/)?$",
+      "dest": "/movies?slug=$1"
+    },
+    {
+      "src": "^\\/movies\\/([^\\/]+?)\\/([^\\/]+?)(?:\\/)?$",
+      "dest": "/movie?genreId=$1&slug=$2"
+    }
+  ]
 }
