@@ -10,28 +10,33 @@ import { IMAGE_BASE_URL } from "apis/tmdb/apiConfig";
 const movieCard = ({ movie, genre }) => {
   return (
     <div className="column is-half">
-      <Link route="movie" params={{ slug: movie.id, genreId: genre.id }}>
-        <div className="box">
-          <article className="media">
+      <div className="box movie-card">
+        <article className="media">
+          <Link route="movie" params={{ slug: movie.id, genreId: genre.id }}>
             <figure className="media-left">
               <p className="image">
                 <img src={`${IMAGE_BASE_URL}/w185/${movie.poster_path}`} />
               </p>
             </figure>
-            <div className="media-content">
-              <div className="content">
+          </Link>
+          <div className="media-content">
+            <div className="content">
+              <Link
+                route="movie"
+                params={{ slug: movie.id, genreId: genre.id }}
+              >
                 <h4 className="title is-4">{movie.title}</h4>
-                <p className="content is-small">{movie.overview}</p>
-              </div>
+              </Link>
+              <p className="content is-small">{movie.overview}</p>
             </div>
-            <div className="media-right">
-              <span className="icon is-small">
-                <FontAwesomeIcon icon={faCartPlus} />
-              </span>
-            </div>
-          </article>
-        </div>
-      </Link>
+          </div>
+          <div className="media-right">
+            <span className="icon is-small">
+              <FontAwesomeIcon icon={faCartPlus} />
+            </span>
+          </div>
+        </article>
+      </div>
     </div>
   );
 };

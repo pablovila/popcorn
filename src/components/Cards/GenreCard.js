@@ -9,13 +9,11 @@ const genreCard = ({ genre }) => {
   return (
     <div className="column is-narrow">
       <Link route="movies" params={{ slug: genre.id }}>
-        <div className="box">
-          <a className="button is-white">
-            <span className="icon">
-              <FontAwesomeIcon icon={faTicketAlt} />
-            </span>
-            <span>{genre.name}</span>
-          </a>
+        <div className="box genre-card has-text-link">
+          <span className="icon">
+            <FontAwesomeIcon icon={faTicketAlt} />
+          </span>
+          <span>{genre.name}</span>
         </div>
       </Link>
     </div>
