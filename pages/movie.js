@@ -38,11 +38,16 @@ movie.getInitialProps = async ({ store, query }) => {
   const genreId = query.genreId;
   await store.dispatch(operations.fetchMovie(movieId));
 
-  const state = store.getState();
+  let state = store.getState();
   const item = selectors.getMovie(state);
   const movie = selectors.getMovieDetailsById(state, item);
 
-  const genre = selectors.getGenreById(state, genreId);
+  let genre = selectors.getGenreById(state, genreId);
+  if (!genre) {
+    await store.dispatch(operations.fetchGenres());
+    state = store.getState();
+    genre = selectors.getGenreById(state, genreId);
+  }
 
   return { movie, genre };
 };

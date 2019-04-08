@@ -1,5 +1,13 @@
 {
   "version": 2,
   "name": "popcorn",
-  "builds": [{ "src": "package.json", "use": "@now/next" }]
+  "builds": [{ "src": "package.json", "use": "@now/next" }],
+  "patterns": { "slug": "(?<slug>[^/]*)", "genreId": "(?<genreId>[^/]*)" },
+  "routes": [
+    { "src": "/movies/(?<slug>.*)", "dest": "/movies?slug=$slug" },
+    {
+      "src": "/movies/(?<genreId>.*/(?<slug>.*)",
+      "dest": "/movies?genreId=$genreId&slug=$slug"
+    }
+  ]
 }
