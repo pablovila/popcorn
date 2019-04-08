@@ -3,10 +3,20 @@
   "name": "popcorn",
   "builds": [{ "src": "package.json", "use": "@now/next" }],
   "routes": [
-    { "src": "/movies/(?<slug>[^/])", "dest": "/movies?slug=$slug" },
     {
-      "src": "/movies/(?<genreId>[^/]/(?<slug>[^/])",
-      "dest": "/movies?genreId=$genreId&slug=$slug"
+      "src": "/_next/static/(.*)",
+      "dest": "/_next/static/$1",
+      "headers": {
+        "cache-control": "s-maxage=86400"
+      }
+    },
+    {
+      "src": "^\\/movies\\/([^\\/]+?)(?:\\/)?$",
+      "dest": "/movies?slug=$1"
+    },
+    {
+      "src": "^\\/movies\\/([^\\/]+?)\\/([^\\/]+?)(?:\\/)?$",
+      "dest": "/movie?genreId=$1&slug=$2"
     }
   ]
 }
