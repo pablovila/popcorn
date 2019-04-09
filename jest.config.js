@@ -1,6 +1,10 @@
 module.exports = {
   setupFiles: ["<rootDir>/jest.setup.js"],
-  testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
+  testPathIgnorePatterns: [
+    "<rootDir>/.next/",
+    "<rootDir>/node_modules/",
+    "cypress"
+  ],
   moduleNameMapper: {
     "^src(.*)$": "<rootDir>/src$1",
     "^apis(.*)$": "<rootDir>/src/apis$1",
